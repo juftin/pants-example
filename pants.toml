@@ -1,0 +1,50 @@
+[anonymous-telemetry]
+enabled = false
+
+[GLOBAL]
+pants_version = "2.14.0"
+backend_packages = [
+    # Pants Backends
+    "pants.backend.shell",
+    "pants.backend.python",
+    "pants.backend.experimental.python",
+    "pants.backend.docker",
+    # Auto Formatting (Sequential Ordering Matters)
+    "pants.backend.experimental.python.lint.autoflake",
+    "pants.backend.python.lint.black",
+    "pants.backend.python.lint.isort",
+    # Code Linters
+    "pants.backend.python.lint.bandit",
+    "pants.backend.python.lint.docformatter",
+    "pants.backend.python.lint.flake8",
+    "pants.backend.python.lint.pylint",
+    "pants.backend.docker.lint.hadolint",
+    "pants.backend.shell.lint.shfmt",
+    "pants.backend.shell.lint.shellcheck",
+    # Code Checkers
+    "pants.backend.python.typecheck.mypy",
+    "pants.backend.experimental.python.lint.pyupgrade",
+    # Code Generators
+    "pants.backend.codegen.protobuf.lint.buf",
+    "pants.backend.codegen.protobuf.python",
+    # Packaging
+    "pants.backend.experimental.python.packaging.pyoxidizer",
+    # Miscellaneous
+    "pants.backend.python.mixed_interpreter_constraints",
+]
+
+[source]
+root_patterns = [
+    # Dependencies
+    "/3rdparty/",
+    #Packages
+    "/packages/package-1/",
+    "/packages/package-2/",
+]
+
+[python]
+interpreter_constraints = ["CPython>=3.7.1,<3.10"]
+enable_resolves = true
+
+[python.resolves]
+python-default = "3rdparty/python/default.lock"
