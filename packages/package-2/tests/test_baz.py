@@ -1,5 +1,5 @@
-from package_2.baz import barg
+from package_2.baz import qux
 
 
-def test_baz_barg():
-    assert barg() == 2
+def test_baz_qux():
+    assert qux() == 2

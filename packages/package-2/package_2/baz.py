@@ -4,6 +4,6 @@ import scipy  # noqa
 from package_1.foo import bar
 
 
-def barg():
+def qux():
     result = bar()
     return result
