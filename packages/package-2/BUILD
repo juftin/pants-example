@@ -4,6 +4,9 @@ python_sources(
         "package_2/**/*.py",
         "package_2/*.py",
     ],
+    dependencies=[
+        "packages/package-1:dist",
+    ],
 )
 
 resources(
@@ -25,7 +28,6 @@ python_tests(
     dependencies=[
         ":dist",
         ":test-resources",
-        "packages/package-1:dist",
     ],
 )
 

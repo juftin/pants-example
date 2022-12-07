@@ -50,6 +50,7 @@ python_distribution(
     ],
     provides=setup_py(
         name="package-1",
+        version="0.1.0",
     ),
     generate_setup=False,
 )
