@@ -4,20 +4,9 @@ python_sources(
         "package_2/**/*.py",
         "package_2/*.py",
     ],
-    dependencies=[
-        "packages/package-1:dist",
-    ],
 )
 
-resources(
-    name="test-resources",
-    sources=[
-        "tests/**",
-        "!tests/**/test_*.py",
-        "!tests/test_*.py",
-        "!tests/conftest.py",
-    ],
-)
+python_test_utils(name="conftest", sources=["tests/conftest.py"])
 
 python_tests(
     name="tests",
@@ -26,8 +15,8 @@ python_tests(
         "tests/test_*.py",
     ],
     dependencies=[
-        ":dist",
-        ":test-resources",
+        ":lib",
+        ":conftest",
     ],
 )
 
